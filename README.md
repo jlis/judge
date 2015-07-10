@@ -1,2 +1,2 @@
-# voters
-A feature flagging and value voter package for Laravel 5
+# laravel-judge
+A feature and value decider for Laravel 5
