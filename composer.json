@@ -1,25 +1,38 @@
 {
-    "name": "jlis/laravel-judge",
-    "description": "A feature and value decider for Laravel 5",
-    "require": {
-        "symfony/expression-language": "~2.7"
-    },
-    "require-dev": {
-        "php": ">=5.4.0",
-        "phpunit/phpunit": "~4.6"
-    },
-    "autoload": {
-        "psr-0": {
-            "Judge\\Tests": "tests/",
-            "Judge": "src/"
-        }
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Julius Ehrlich",
-            "email": "julius@ehrlich-bros.de"
-        }
-    ],
-    "minimum-stability": "stable"
+  "name": "jlis/laravel-judge",
+  "description": "A feature and value decider for Laravel 5",
+  "keywords": [
+    "feature",
+    "flagging",
+    "value",
+    "decision",
+    "decider"
+  ],
+  "homepage": "http://github.com/jlis/laravel-judge",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "symfony/expression-language": "~2.7"
+  },
+  "require-dev": {
+    "php": ">=5.4.0",
+    "phpunit/phpunit": "~4.6"
+  },
+  "autoload": {
+    "psr-4": {"Judge\\": "src/Judge"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Judge\\Tests": "tests/Judge"}
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Julius Ehrlich",
+      "email": "julius@ehrlich-bros.de"
+    }
+  ],
+  "minimum-stability": "stable",
+  "scripts": {
+    "test": "phpunit"
+  }
 }
