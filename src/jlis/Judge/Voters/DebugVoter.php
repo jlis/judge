@@ -19,6 +19,6 @@ class DebugVoter implements VoterInterface
             return false;
         }
 
-        return Config::get('debug') === (bool) $parameter;
+        return Config::get('app.debug') === (bool) $parameter;
     }
 }
