@@ -6,7 +6,7 @@ First, pull in the package through Composer.
 
 ```js
 "require": {
-    "jlis/Judge": "dev-master"
+    "jlis/judge": "dev-master"
 }
 ```
 

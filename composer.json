@@ -1,7 +1,7 @@
 {
-  "name": "jlis/Judge",
+  "name": "jlis/judge",
   "description": "A feature and value decider for Laravel 5",
-  "homepage": "http://github.com/jlis/Judge",
+  "homepage": "http://github.com/jlis/judge",
   "license": "MIT",
   "authors": [
     {
