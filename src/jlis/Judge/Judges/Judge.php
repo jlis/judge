@@ -79,6 +79,7 @@ class Judge
     protected function decideRule($rule, $user = null)
     {
         $parameter = null;
+        $additional = [];
         $negative = false;
 
         if (0 === strpos($rule, self::RULE_INVERTER)) {
@@ -87,7 +88,13 @@ class Judge
         }
 
         if (false !== strpos($rule, self::RULE_PARAM_DELIMITER)) {
-            list($rule, $parameter) = explode(self::RULE_PARAM_DELIMITER, $rule);
+            $splits = explode(self::RULE_PARAM_DELIMITER, $rule);
+            $rule = array_shift($splits);
+            $parameter = array_shift($splits);
+
+            if (!empty($splits)) {
+                $additional = $splits;
+            }
         }
 
         if (!isset($this->voters[strtolower($rule)])) {
@@ -104,7 +111,7 @@ class Judge
             return false;
         }
 
-        $result = $voter::vote($parameter, $user);
+        $result = $voter::vote($parameter, $user, $additional);
 
         return $negative ? (false === $result) : $result;
     }
