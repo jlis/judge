@@ -22,5 +22,5 @@
       "jlis\\Judge": "src/"
     }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "dev"
 }
