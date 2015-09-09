@@ -71,9 +71,9 @@ class JudgeServiceProvider extends ServiceProvider
     private function getConfigs()
     {
         return array(
-            'features' => __DIR__.'/../../config/features.php',
-            'values'   => __DIR__.'/../../config/values.php',
-            'voters'   => __DIR__.'/../../config/voters.php',
+            'features' => __DIR__.'/../../../config/features.php',
+            'values'   => __DIR__.'/../../../config/values.php',
+            'voters'   => __DIR__.'/../../../config/voters.php',
         );
     }
 }
