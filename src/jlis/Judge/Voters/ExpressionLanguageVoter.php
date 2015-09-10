@@ -13,7 +13,7 @@ class ExpressionLanguageVoter implements VoterInterface
     /**
      * {@inheritDoc}
      */
-    public static function vote($parameter = null, $user = null, array $additional = [])
+    public function vote($parameter = null, $user = null, array $additional = [])
     {
         if (empty($parameter)) {
             return false;

@@ -10,16 +10,6 @@ use Illuminate\Support\Facades\Config;
 class FeatureJudge extends AbstractFeatureJudge
 {
     /**
-     * Constructor
-     *
-     * @param array $voters
-     */
-    public function __construct(array $voters = [])
-    {
-        parent::__construct($voters);
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function decide($feature, $user = null, $defaultIfNotFound = false)
@@ -56,7 +46,7 @@ class FeatureJudge extends AbstractFeatureJudge
      */
     public function getFeature($feature)
     {
-        return $this->getFeatures()[$feature];
+        return $this->features[$feature];
     }
 
     /**

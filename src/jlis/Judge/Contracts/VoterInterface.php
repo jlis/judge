@@ -16,5 +16,5 @@ interface VoterInterface
      *
      * @return bool
      */
-    public static function vote($parameter = null, $user = null, array $additional = []);
+    public function vote($parameter = null, $user = null, array $additional = []);
 }

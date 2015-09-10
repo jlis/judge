@@ -10,16 +10,6 @@ use Illuminate\Support\Facades\Config;
 class ValueJudge extends AbstractValueJudge
 {
     /**
-     * Constructor
-     *
-     * @param array $voters
-     */
-    public function __construct(array $voters = [])
-    {
-        parent::__construct($voters);
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function decide($value, $user = null, $defaultValue = false)
@@ -48,7 +38,7 @@ class ValueJudge extends AbstractValueJudge
     public function valueExists($value)
     {
         // don't use $this->values since its cached, which does not work for behat
-        return isset($this->getValues()[$value]);
+        return isset($this->values[$value]);
     }
 
     /**

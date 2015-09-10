@@ -43,7 +43,7 @@ class Judge
             return $this->decideRule($rules, $user);
         }
 
-        if (!is_array($rules)) {
+        if (!is_array($rules) || empty($rules)) {
             return false;
         }
 
@@ -111,7 +111,7 @@ class Judge
             return false;
         }
 
-        $result = $voter::vote($parameter, $user, $additional);
+        $result = $voter->vote($parameter, $user, $additional);
 
         return $negative ? (false === $result) : $result;
     }
