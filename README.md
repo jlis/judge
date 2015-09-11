@@ -9,6 +9,7 @@
 - [Value configuration examples](#valuesExamples).
 - [Voters](#voters).
 - [Usage](#usage).
+- [TBD](#tbd).
 
 
 <a id="installation"></a>
@@ -213,3 +214,8 @@ if (Feature::decide('show_memory_usage', Auth::user())) {
 }
 ```
 
+<a id="tbd"></a>
+## tbd
+
+- More unit tests
+- Different feature/value loaders like Config, Redis, etc.
