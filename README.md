@@ -4,17 +4,15 @@
 
 First, pull in the package through Composer.
 
-```js
-"require": {
-    "jlis/judge": "dev-master"
-}
+```
+composer require jlis/judge
 ```
 
 And then include the service provider within `app/config/app.php`.
 
 ```php
 'providers' => [
-    'jlis\Judge\JudgeServiceProvider.php'
+    \jlis\Judge\JudgeServiceProvider::class,
 ];
 ```
 
@@ -22,8 +20,8 @@ And, for convenience, add a facade alias to this same file at the bottom:
 
 ```php
 'aliases' => [
-    'Feature' => 'jlis\Judge\Feature',
-    'Value' => 'jlis\Judge\Value',
+    'Feature' => \jlis\Judge\Feature::class,
+    'Value'   => \jlis\Judge\Value::class,
 ];
 ```
 
