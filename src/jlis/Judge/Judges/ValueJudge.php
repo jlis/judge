@@ -37,7 +37,6 @@ class ValueJudge extends AbstractValueJudge
      */
     public function valueExists($value)
     {
-        // don't use $this->values since its cached, which does not work for behat
         return isset($this->values[$value]);
     }
 
@@ -56,7 +55,6 @@ class ValueJudge extends AbstractValueJudge
      */
     private function getValueRules($value)
     {
-        // don't use $this->values since its cached, which does not work for behat
-        return $this->getValues()[$value];
+        return $this->values[$value];
     }
 }
