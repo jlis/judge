@@ -1,5 +1,6 @@
 # Judge - A feature and value decider for Laravel 5
 
+### The easy way to toggle/decide features and values.
 
 - [Installation](#installation).
 - [Feature configuration](#features).
