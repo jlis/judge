@@ -1,4 +1,4 @@
-# Judge - A feature and value decider for Laravel 5
+# Judge - A feature and value decider for Laravel 5 [![Build Status](https://travis-ci.org/jlis/judge.svg?branch=master)](https://travis-ci.org/jlis/judge)
 
 ### The easy way to toggle/decide features and values.
 
