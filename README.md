@@ -66,11 +66,11 @@ The **value** however is something which always returns a value (whoa) like a st
 ```php
 'hello_message' => [
     [
-        'value'   => 'Hello %s',
-        'filters' => ['expression_language:user !== null'],
+        'value'   => 'Hello darling <3',
+        'filters' => ['expression_language:user.getName()=="Girlfriend"'],
     ],
     [
-        'value' => 'Hello guest.',
+        'value' => 'Hello there.',
     ],
 ]
 ```
@@ -95,7 +95,7 @@ Within your controllers, you can use this for example...
 
 ```php
 $helloMessage = Value::decide('hello_message', $this->getUser());
-echo sprintf($helloMessage, $this->getUser()->name);
+echo $helloMessage;
 ```
 
 Or this for example:
