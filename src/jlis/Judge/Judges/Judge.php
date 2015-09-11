@@ -101,12 +101,15 @@ class Judge
             return false;
         }
 
-        $voterClass = $this->voters[strtolower($rule)];
-        if (!class_exists($voterClass)) {
-            return false;
+        $voter = $this->voters[strtolower($rule)];
+        if (!is_object($voter)) {
+            if (!class_exists($voter)) {
+                return false;
+            }
+
+            $voter = new $voter();
         }
 
-        $voter = new $voterClass();
         if (!$voter instanceof VoterInterface) {
             return false;
         }
