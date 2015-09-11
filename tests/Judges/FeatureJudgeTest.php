@@ -236,7 +236,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
     public function testFeatureWithARuleAndAExistingVoterAndAUser()
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        $voterMock->shouldReceive('vote')->once()->with(null, 'Mike', [])->andReturn(true);
+        $voterMock->shouldReceive('vote')->once()->with('firstParam', 'Mike', ['secondParam'])->andReturn(true);
 
         Config::shouldReceive('get')
             ->once()
