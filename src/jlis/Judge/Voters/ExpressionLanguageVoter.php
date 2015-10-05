@@ -3,6 +3,7 @@
 namespace jlis\Judge\Voters;
 
 use jlis\Judge\Contracts\VoterInterface;
+use jlis\Judge\Judges\FeatureJudge;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
@@ -24,6 +25,6 @@ class ExpressionLanguageVoter implements VoterInterface
             $additional['user'] = $user;
         }
 
-        return $language->evaluate($parameter, $additional);
+        return FeatureJudge::isTrue($language->evaluate($parameter, $additional));
     }
 }

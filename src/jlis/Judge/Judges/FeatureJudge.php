@@ -25,7 +25,7 @@ class FeatureJudge extends AbstractFeatureJudge
 
         $enabled = false;
         foreach ($rules as $rule) {
-            if (true === $this->isTrue($this->decideRules($rule, $user))) {
+            if (true === self::isTrue($this->decideRules($rule, $user))) {
                 $enabled = true;
             }
         }
@@ -65,7 +65,7 @@ class FeatureJudge extends AbstractFeatureJudge
      *
      * @return bool|mixed|null
      */
-    private function isTrue($val, $returnNull = false)
+    public static function isTrue($val, $returnNull = false)
     {
         $boolVal = (is_string($val) ? filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) : (bool) $val);
 
