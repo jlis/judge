@@ -31,14 +31,14 @@ class JudgeServiceProvider extends ServiceProvider
 
         $app->bind(
             'feature',
-            function () use ($config) {
+            function() use ($config) {
                 return new FeatureJudge($config->get('voters'));
             }
         );
 
         $app->bind(
             'value',
-            function () use ($config) {
+            function() use ($config) {
                 return new ValueJudge($config->get('voters'));
             }
         );
