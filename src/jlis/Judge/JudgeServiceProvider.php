@@ -27,19 +27,19 @@ class JudgeServiceProvider extends ServiceProvider
     {
         $app = $this->app;
         $this->loadConfigs();
-        $config = $app->make('config');
+        $voters = $app->make('config')->get('voters');
 
         $app->bind(
             'feature',
-            function() use ($config) {
-                return new FeatureJudge($config->get('voters'));
+            function () use ($voters) {
+                return new FeatureJudge($voters);
             }
         );
 
         $app->bind(
             'value',
-            function() use ($config) {
-                return new ValueJudge($config->get('voters'));
+            function () use ($voters) {
+                return new ValueJudge($voters);
             }
         );
     }
@@ -53,7 +53,7 @@ class JudgeServiceProvider extends ServiceProvider
     {
         $publishes = [];
         foreach ($this->getConfigs() as $key => $path) {
-            $publishes[$path] = config_path($key.'.php');
+            $publishes[$path] = $this->app['path.config'].DIRECTORY_SEPARATOR.$key.'.php';
         }
         $this->publishes($publishes, 'config');
     }

@@ -4,6 +4,7 @@ namespace jlis\Tests\Judge\Voters;
 
 use jlis\Judge\Feature;
 use jlis\Judge\Voters\FeatureVoter;
+use jlis\Tests\Judge\StdObject;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

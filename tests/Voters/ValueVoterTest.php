@@ -4,6 +4,7 @@ namespace jlis\Tests\Judge\Voters;
 
 use jlis\Judge\Value;
 use jlis\Judge\Voters\ValueVoter;
+use jlis\Tests\Judge\StdObject;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

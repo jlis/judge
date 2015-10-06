@@ -37,6 +37,7 @@ class DebugVoterTest extends \PHPUnit_Framework_TestCase
             array(true, true, 'true'),
             array(false, false, 'false'),
             array(false, null, 'true'),
+            array(false, null, ''),
         );
     }
 }

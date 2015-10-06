@@ -3,6 +3,7 @@
 namespace jlis\Tests\Judge\Voters;
 
 use jlis\Judge\Voters\ExpressionLanguageVoter;
+use jlis\Tests\Judge\StdObject;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -29,6 +30,7 @@ class ExpressionLanguageVoterTest extends \PHPUnit_Framework_TestCase
     public function provider()
     {
         return array(
+            array(false, ''),
             array(true, '1+1==2'),
             array(false, '1+1==3'),
             array(true, 'user.getName()=="Mike"', $this->getUser()),

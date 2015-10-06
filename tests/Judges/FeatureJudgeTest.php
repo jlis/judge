@@ -4,6 +4,7 @@ namespace jlis\Tests\Judge\Judges;
 
 use Illuminate\Support\Facades\Config;
 use jlis\Judge\Judges\FeatureJudge;
+use jlis\Tests\Judge\StdObject;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -147,6 +148,51 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
         static::assertFalse($judge->decide('existingFeature'));
     }
 
+    public function testFeatureWithARuleAndANonExistingVoterClass()
+    {
+        Config::shouldReceive('get')
+            ->once()
+            ->with('features', [])
+            ->andReturn(
+                [
+                    'existingFeature' => [
+                        [
+                            'value'   => true,
+                            'filters' => ['missing_voter'],
+                        ],
+                    ],
+                ]
+            );
+
+        $judge = new FeatureJudge(array('missing_voter' => 'invalid_class'));
+        static::assertFalse($judge->decide('existingFeature'));
+    }
+
+    public function testFeatureWithARuleAndAInvalidVoter()
+    {
+        $foo = new StdObject();
+        $foo->{'vote'} = function () {
+            return true;
+        };
+
+        Config::shouldReceive('get')
+            ->once()
+            ->with('features', [])
+            ->andReturn(
+                [
+                    'existingFeature' => [
+                        [
+                            'value'   => true,
+                            'filters' => ['existing_voter'],
+                        ],
+                    ],
+                ]
+            );
+
+        $judge = new FeatureJudge(array('existing_voter' => get_class($foo)));
+        static::assertFalse($judge->decide('existingFeature'));
+    }
+
     /**
      * @dataProvider featureWithARuleAndAExistingVoterProvider
      *
@@ -184,6 +230,46 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
         return array(
             array(true, true),
             array(false, false),
+        );
+    }
+
+    /**
+     * @dataProvider featureWithANegatedRuleAndAExistingVoterProvider
+     *
+     * @param bool  $expected
+     * @param mixed $value
+     */
+    public function testFeatureWithANegatedRuleAndAExistingVoter($expected, $value)
+    {
+        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock->shouldReceive('vote')->once()->with(null, null, [])->andReturn($value);
+
+        Config::shouldReceive('get')
+            ->once()
+            ->with('features', [])
+            ->andReturn(
+                [
+                    'existingFeature' => [
+                        [
+                            'value'   => true,
+                            'filters' => ['!existing_voter'],
+                        ],
+                    ],
+                ]
+            );
+
+        $judge = new FeatureJudge(array('existing_voter' => $voterMock));
+        static::assertEquals($expected, $judge->decide('existingFeature'));
+    }
+
+    /**
+     * @return array
+     */
+    public function featureWithANegatedRuleAndAExistingVoterProvider()
+    {
+        return array(
+            array(false, true),
+            array(true, false),
         );
     }
 
