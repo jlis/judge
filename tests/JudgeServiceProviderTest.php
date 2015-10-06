@@ -57,6 +57,6 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
         $provider = new JudgeServiceProvider($app);
         $provider->boot();
 
-        static::assertCount(3, count($provider::pathsToPublish()));
+        static::assertCount(3, $provider::pathsToPublish());
     }
 }
