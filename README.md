@@ -1,6 +1,11 @@
-# Judge - A feature and value decider for Laravel 5 [![Build Status](https://travis-ci.org/jlis/judge.svg?branch=master)](https://travis-ci.org/jlis/judge)
+# Judge - A feature and value decider for Laravel 5 
 
-### The easy way to toggle/decide features and values.
+The easy way to toggle/decide features and values.
+
+[![Build Status](https://travis-ci.org/jlis/judge.svg?branch=master)](https://travis-ci.org/jlis/judge)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jlis/judge/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jlis/judge/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/jlis/judge/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jlis/judge/?branch=master)
+[![Total Downloads](https://poser.pugx.org/jlis/judge/downloads)](https://packagist.org/packages/jlis/judge)
 
 - [Installation](#installation).
 - [Feature configuration](#features).
