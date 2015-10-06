@@ -10,7 +10,10 @@ php:
 before_script:
   - composer install
 
-script: vendor/bin/phpunit
+script: vendor/bin/phpunit --coverage-clover=coverage.clover
+
+after_success:
+  - vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
 
 matrix:
   allow_failures:
