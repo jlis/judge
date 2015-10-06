@@ -21,7 +21,6 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = Mockery::mock(ArrayAccess::class);
         $closure = Mockery::on(
             function ($closure) use ($app) {
-                //static::assertInstanceOf(AbstractFeatureJudge::class, $closure());
                 return true;
             }
         );
