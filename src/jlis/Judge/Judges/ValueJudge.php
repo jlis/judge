@@ -2,8 +2,6 @@
 
 namespace jlis\Judge\Judges;
 
-use Illuminate\Support\Facades\Config;
-
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
  */
@@ -45,7 +43,7 @@ class ValueJudge extends AbstractValueJudge
      */
     public function getValues()
     {
-        return Config::get('values', []);
+        return $this->adapter->getValues();
     }
 
     /**

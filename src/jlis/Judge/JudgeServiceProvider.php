@@ -3,6 +3,7 @@
 namespace jlis\Judge;
 
 use Illuminate\Support\ServiceProvider;
+use jlis\Judge\Adapters\ConfigAdapter;
 use jlis\Judge\Judges\FeatureJudge;
 use jlis\Judge\Judges\ValueJudge;
 
@@ -27,19 +28,22 @@ class JudgeServiceProvider extends ServiceProvider
     {
         $app = $this->app;
         $this->loadConfigs();
-        $voters = $app->make('config')->get('voters');
+        $config = $app->make('config')->get('judge');
+        $adapterName = isset($config['adapter']) ? $config['adapter'] : ConfigAdapter::class;
+        $adapter = $this->app->make($adapterName);
+        $voters = isset($config['voters']) ? $config['voters'] : [];
 
         $app->bind(
             'feature',
-            function() use ($voters) {
-                return new FeatureJudge($voters);
+            function () use ($adapter, $voters) {
+                return new FeatureJudge($adapter, $voters);
             }
         );
 
         $app->bind(
             'value',
-            function() use ($voters) {
-                return new ValueJudge($voters);
+            function () use ($adapter, $voters) {
+                return new ValueJudge($adapter, $voters);
             }
         );
     }
@@ -52,8 +56,10 @@ class JudgeServiceProvider extends ServiceProvider
     public function boot()
     {
         $publishes = [];
+        $app = $this->app;
         foreach ($this->getConfigs() as $key => $path) {
-            $publishes[$path] = $this->app['path.config'].DIRECTORY_SEPARATOR.$key.'.php';
+            /** @var $app array */
+            $publishes[$path] = $app['path.config'].DIRECTORY_SEPARATOR.$key.'.php';
         }
         $this->publishes($publishes, 'config');
     }
@@ -73,7 +79,7 @@ class JudgeServiceProvider extends ServiceProvider
         return array(
             'features' => __DIR__.'/../../../config/features.php',
             'values'   => __DIR__.'/../../../config/values.php',
-            'voters'   => __DIR__.'/../../../config/voters.php',
+            'judge'   => __DIR__.'/../../../config/judge.php',
         );
     }
 }

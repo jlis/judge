@@ -2,8 +2,6 @@
 
 namespace jlis\Judge\Judges;
 
-use Illuminate\Support\Facades\Config;
-
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
  */
@@ -54,7 +52,7 @@ class FeatureJudge extends AbstractFeatureJudge
      */
     public function getFeatures()
     {
-        return Config::get('features', []);
+        return $this->adapter->getFeatures();
     }
 
     /**

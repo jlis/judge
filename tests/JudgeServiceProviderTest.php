@@ -21,6 +21,9 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = Mockery::mock(ArrayAccess::class);
         $closure = Mockery::on(
             function ($closure) use ($app) {
+                $result = $closure($this->getAdapterMock(), []);
+                self::assertInstanceOf('jlis\Judge\Judges\Judge', $result);
+
                 return true;
             }
         );
@@ -37,6 +40,10 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
 
         /** @noinspection PhpMethodParametersCountMismatchInspection */
         $app->shouldReceive('make')->with('config')->once()->andReturn($config);
+        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        $app->shouldReceive('make')->with('jlis\Judge\Adapters\ConfigAdapter')->once()->andReturn(
+            $this->getAdapterMock()
+        );
         /** @noinspection PhpMethodParametersCountMismatchInspection */
         $app->shouldReceive('bind')->with('feature', $closure)->once()->andReturnUndefined();
         /** @noinspection PhpMethodParametersCountMismatchInspection */
@@ -57,5 +64,19 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
         $provider->boot();
 
         static::assertCount(3, $provider::pathsToPublish());
+    }
+
+    /**
+     * @return Mockery\MockInterface
+     */
+    private function getAdapterMock()
+    {
+        $mock = Mockery::mock('jlis\Judge\Adapters\AdapterInterface');
+        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        $mock->shouldReceive('getFeatures')->zeroOrMoreTimes()->andReturn([]);
+        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        $mock->shouldReceive('getValues')->zeroOrMoreTimes()->andReturn([]);
+
+        return $mock;
     }
 }

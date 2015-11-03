@@ -2,6 +2,8 @@
 
 namespace jlis\Judge\Judges;
 
+use jlis\Judge\Adapters\AdapterInterface;
+
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
  */
@@ -15,11 +17,12 @@ abstract class AbstractFeatureJudge extends Judge implements FeatureJudgeInterfa
     /**
      * Constructor.
      *
-     * @param array $voters
+     * @param AdapterInterface $adapter
+     * @param array            $voters
      */
-    public function __construct(array $voters = [])
+    public function __construct(AdapterInterface $adapter, array $voters = [])
     {
-        parent::__construct($voters);
+        parent::__construct($adapter, $voters);
         $this->features = $this->getFeatures();
     }
 

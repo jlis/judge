@@ -2,6 +2,7 @@
 
 namespace jlis\Judge\Judges;
 
+use jlis\Judge\Adapters\AdapterInterface;
 use jlis\Judge\Contracts\VoterInterface;
 
 /**
@@ -15,6 +16,10 @@ class Judge
     const FIELD_FILTERS = 'filters';
 
     /**
+     * @var AdapterInterface
+     */
+    protected $adapter;
+    /**
      * @var VoterInterface[]
      */
     protected $voters = [];
@@ -22,10 +27,12 @@ class Judge
     /**
      * Constructor.
      *
+     * @param AdapterInterface $adapter
      * @param VoterInterface[] $voters
      */
-    public function __construct(array $voters = [])
+    public function __construct(AdapterInterface $adapter, array $voters = [])
     {
+        $this->adapter = $adapter;
         $this->voters = $voters;
     }
 
