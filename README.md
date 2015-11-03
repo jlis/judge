@@ -13,6 +13,7 @@ The easy way to toggle/decide features and values.
 - [Value configuration](#values).
 - [Value configuration examples](#valuesExamples).
 - [Voters](#voters).
+- [Adapters](#adapters).
 - [Usage](#usage).
 - [TBD](#tbd).
 
@@ -197,11 +198,23 @@ A value with multiple filters chained in an AND condition and a default value:
 The actual voters can be registered here:
 
 ```
-app/config/voters.php
+app/config/judge.php
 ```
 
 The voters contain the logic to decide, if the given filter should return true or false. This decides either a feature is on or off or what a value should return regarding to his config.
 
+<a id="adapters"></a>
+## Adapters
+
+By default, Judge uses the Laravel config to read the features/values. You can choose between the **config**, **redis** and **cache** adapter.
+
+```
+app/config/judge.php
+```
+
+If you want to add you own adapter, just implement the **ÀdapterInterface** and add the class.
+
+<a id="usage"></a>
 ## Usage
 
 Within your controllers, you can use this for example...
@@ -222,5 +235,4 @@ if (Feature::decide('show_memory_usage', Auth::user())) {
 <a id="tbd"></a>
 ## tbd
 
-- More unit tests
-- Different feature/value loaders like Config, Redis, etc.
+- Breakers
