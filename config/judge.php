@@ -8,7 +8,8 @@ return [
     |
     | The following adapters are available by default:
     | "config" => loads from the features.php and values.php config file
-    | "redis" => loads from the "j.f" and the "j.v" redis maps
+    | "redis" => loads from the "judge:features" and "judge:values" redis maps
+    | "cache" => loads from the "judge:features" and "judge:values" cache
     |
     | If you want to use your own adapter, just implement the
     | jlis\Judge\Adapters\AdapterInterface and set your class like

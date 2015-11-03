@@ -3,6 +3,7 @@
 namespace jlis\Tests\Judge;
 
 use ArrayAccess;
+use jlis\Judge\Adapters\ConfigAdapter;
 use jlis\Judge\JudgeServiceProvider;
 use Mockery;
 
@@ -16,7 +17,10 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
         Mockery::close();
     }
 
-    public function testRegister()
+    /**
+     * @dataProvider registerProvider
+     */
+    public function testRegister(array $judgeConfig)
     {
         $app = Mockery::mock(ArrayAccess::class);
         $closure = Mockery::on(
@@ -34,7 +38,9 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app->shouldReceive('offsetGet')->zeroOrMoreTimes()->with('config')->andReturn($config = Mockery::mock());
 
         /** @noinspection PhpMethodParametersCountMismatchInspection */
-        $config->shouldReceive('get')->withAnyArgs()->times(4)->andReturn([]);
+        $config->shouldReceive('get')->withArgs(['judge'])->times(1)->andReturn($judgeConfig);
+        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        $config->shouldReceive('get')->withAnyArgs()->times(3)->andReturn([]);
         /** @noinspection PhpMethodParametersCountMismatchInspection */
         $config->shouldReceive('set')->withAnyArgs()->times(3)->andReturnUndefined();
 
@@ -51,6 +57,17 @@ class JudgeServiceProviderTest extends \PHPUnit_Framework_TestCase
 
         $provider = new JudgeServiceProvider($app);
         $provider->register();
+    }
+
+    /**
+     * @return array
+     */
+    public function registerProvider()
+    {
+        return [
+            [[]],
+            [['adapter' => ConfigAdapter::class]]
+        ];
     }
 
     public function testBoot()

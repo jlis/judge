@@ -3,7 +3,6 @@
 namespace jlis\Judge;
 
 use Illuminate\Support\ServiceProvider;
-use jlis\Judge\Adapters\ConfigAdapter;
 use jlis\Judge\Judges\FeatureJudge;
 use jlis\Judge\Judges\ValueJudge;
 
@@ -29,8 +28,7 @@ class JudgeServiceProvider extends ServiceProvider
         $app = $this->app;
         $this->loadConfigs();
         $config = $app->make('config')->get('judge');
-        $adapterName = isset($config['adapter']) ? $config['adapter'] : ConfigAdapter::class;
-        $adapter = $this->app->make($adapterName);
+        $adapter = $this->app->make($this->getAdapterClass($config));
         $voters = isset($config['voters']) ? $config['voters'] : [];
 
         $app->bind(
@@ -81,5 +79,26 @@ class JudgeServiceProvider extends ServiceProvider
             'values'   => __DIR__.'/../../../config/values.php',
             'judge'   => __DIR__.'/../../../config/judge.php',
         );
+    }
+
+    /**
+     * @param array $config
+     *
+     * @return string
+     */
+    private function getAdapterClass(array $config)
+    {
+        $map = [
+            'config' => Adapters\ConfigAdapter::class,
+            'redis' => Adapters\RedisAdapter::class,
+            'cache' => Adapters\CacheAdapter::class,
+        ];
+
+        $className = isset($config['adapter']) ? $config['adapter'] : 'config';
+        if (isset($map[$className])) {
+            return $map[$className];
+        }
+
+        return $className;
     }
 }
