@@ -23,7 +23,8 @@
     "php": ">=5.4.0",
     "symfony/expression-language": "~2.7",
     "illuminate/support": "5.*",
-    "mockery/mockery": "0.9.4"
+    "mockery/mockery": "0.9.4",
+    "predis/predis": "^1.1@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.6",
