@@ -9,7 +9,7 @@ return [
     */
     'show_memory_usage' => [
         [
-            'value'   => true,
+            'value' => true,
             'filters' => ['debug:true'],
         ],
     ],

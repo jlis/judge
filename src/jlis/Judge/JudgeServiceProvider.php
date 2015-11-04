@@ -20,8 +20,6 @@ class JudgeServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {
@@ -48,15 +46,13 @@ class JudgeServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap the application events.
-     *
-     * @return void
      */
     public function boot()
     {
         $publishes = [];
         $app = $this->app;
         foreach ($this->getConfigs() as $key => $path) {
-            /** @var $app array */
+            /* @var $app array */
             $publishes[$path] = $app['path.config'].DIRECTORY_SEPARATOR.$key.'.php';
         }
         $this->publishes($publishes, 'config');
@@ -76,8 +72,8 @@ class JudgeServiceProvider extends ServiceProvider
     {
         return array(
             'features' => __DIR__.'/../../../config/features.php',
-            'values'   => __DIR__.'/../../../config/values.php',
-            'judge'   => __DIR__.'/../../../config/judge.php',
+            'values' => __DIR__.'/../../../config/values.php',
+            'judge' => __DIR__.'/../../../config/judge.php',
         );
     }
 

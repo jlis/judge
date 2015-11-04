@@ -8,7 +8,7 @@ namespace jlis\Judge\Judges;
 class FeatureJudge extends AbstractFeatureJudge
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function decide($feature, $user = null, $defaultIfNotFound = false)
     {
@@ -32,7 +32,7 @@ class FeatureJudge extends AbstractFeatureJudge
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function featureExists($feature)
     {
@@ -40,7 +40,7 @@ class FeatureJudge extends AbstractFeatureJudge
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFeature($feature)
     {
@@ -48,7 +48,7 @@ class FeatureJudge extends AbstractFeatureJudge
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFeatures()
     {

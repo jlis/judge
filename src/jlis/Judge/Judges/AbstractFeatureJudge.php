@@ -27,22 +27,22 @@ abstract class AbstractFeatureJudge extends Judge implements FeatureJudgeInterfa
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function decide($feature, $user = null, $defaultIfNotFound = false);
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function featureExists($feature);
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function getFeature($feature);
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function getFeatures();
 }

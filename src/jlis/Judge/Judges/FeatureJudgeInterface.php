@@ -19,7 +19,7 @@ interface FeatureJudgeInterface
     public function decide($feature, $user = null, $defaultIfNotFound = false);
 
     /**
-     * Checks if a feature exists
+     * Checks if a feature exists.
      *
      * @param string $feature
      *
@@ -28,7 +28,7 @@ interface FeatureJudgeInterface
     public function featureExists($feature);
 
     /**
-     * Returns a single feature
+     * Returns a single feature.
      *
      * @param string $feature
      *
@@ -37,7 +37,7 @@ interface FeatureJudgeInterface
     public function getFeature($feature);
 
     /**
-     * Returns all features
+     * Returns all features.
      *
      * @return array
      */
