@@ -11,7 +11,7 @@ use jlis\Judge\Feature;
 class FeatureVoter implements VoterInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function vote($parameter = null, $user = null, array $additional = [])
     {

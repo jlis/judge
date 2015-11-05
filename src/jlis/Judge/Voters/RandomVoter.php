@@ -10,7 +10,7 @@ use jlis\Judge\Contracts\VoterInterface;
 class RandomVoter implements VoterInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function vote($parameter = null, $user = null, array $additional = [])
     {

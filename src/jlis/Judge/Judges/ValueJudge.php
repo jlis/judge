@@ -8,7 +8,7 @@ namespace jlis\Judge\Judges;
 class ValueJudge extends AbstractValueJudge
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function decide($value, $user = null, $defaultValue = false)
     {
@@ -31,7 +31,7 @@ class ValueJudge extends AbstractValueJudge
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function valueExists($value)
     {
@@ -39,7 +39,7 @@ class ValueJudge extends AbstractValueJudge
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getValues()
     {

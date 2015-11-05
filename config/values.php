@@ -9,7 +9,7 @@ return [
     */
     'hello_message' => [
         [
-            'value'   => 'Hello %s',
+            'value' => 'Hello %s',
             'filters' => ['expression_language:user !== null'],
         ],
         [

@@ -8,7 +8,7 @@ namespace jlis\Judge\Judges;
 interface ValueJudgeInterface
 {
     /**
-     * Decides which value should be returned, based on the given filters
+     * Decides which value should be returned, based on the given filters.
      *
      * @param string $value
      * @param mixed  $user
@@ -19,7 +19,7 @@ interface ValueJudgeInterface
     public function decide($value, $user = null, $defaultValue = false);
 
     /**
-     * Checks if a value exists
+     * Checks if a value exists.
      *
      * @param string $value
      *
@@ -28,7 +28,7 @@ interface ValueJudgeInterface
     public function valueExists($value);
 
     /**
-     * Returns all values
+     * Returns all values.
      *
      * @return array
      */

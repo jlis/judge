@@ -13,7 +13,7 @@ class CacheAdapter implements AdapterInterface
     const KEY_VALUES = 'judge:values';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFeatures()
     {
@@ -21,7 +21,7 @@ class CacheAdapter implements AdapterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getValues()
     {

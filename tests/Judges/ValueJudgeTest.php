@@ -50,7 +50,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
-                    'value'   => 'value',
+                    'value' => 'value',
                     'filters' => [],
                 ],
             ]
@@ -65,7 +65,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
-                    'value'   => true,
+                    'value' => true,
                     'filters' => ['missing_voter'],
                 ],
             ]
@@ -81,7 +81,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             [
                 'existing_value' => [
                     [
-                        'value'   => true,
+                        'value' => true,
                         'filters' => ['missing_voter'],
                     ],
                 ],
@@ -103,7 +103,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             [
                 'existing_value' => [
                     [
-                        'value'   => true,
+                        'value' => true,
                         'filters' => ['existing_voter'],
                     ],
                 ],
@@ -123,14 +123,14 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     public function testValueWithARuleAndAExistingVoter($expected, $voterResult)
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with(null, null, [])->andReturn($voterResult);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'value',
+                        'value' => 'value',
                         'filters' => ['existing_voter'],
                     ],
                 ],
@@ -161,14 +161,14 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     public function testValueWithANegatedRuleAndAExistingVoter($expected, $voterResult)
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with(null, null, [])->andReturn($voterResult);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'value',
+                        'value' => 'value',
                         'filters' => ['!existing_voter'],
                     ],
                 ],
@@ -193,14 +193,14 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     public function testValueWithARuleAndAExistingVoterAndAParameter()
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with('parameter', null, [])->andReturn(true);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'value',
+                        'value' => 'value',
                         'filters' => ['existing_voter:parameter'],
                     ],
                 ],
@@ -214,14 +214,14 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     public function testValueWithARuleAndAExistingVoterAndMultipleParameters()
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with('firstParam', null, ['secondParam'])->andReturn(true);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'value',
+                        'value' => 'value',
                         'filters' => ['existing_voter:firstParam:secondParam'],
                     ],
                 ],
@@ -235,14 +235,14 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     public function testValueWithARuleAndAExistingVoterAndAUser()
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with('firstParam', 'Mike', ['secondParam'])->andReturn(true);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'value',
+                        'value' => 'value',
                         'filters' => ['existing_voter:firstParam:secondParam'],
                     ],
                 ],
@@ -256,14 +256,14 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     public function testValueWithARuleAndDefaultValue()
     {
         $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->andReturn(false);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'foo',
+                        'value' => 'foo',
                         'filters' => ['existing_voter:parameter'],
                     ],
                     [
@@ -288,16 +288,16 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     {
         $voterOneMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
         $voterTwoMock = clone $voterOneMock;
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterOneMock->shouldReceive('vote')->once()->andReturn($voterOneResult);
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterTwoMock->shouldReceive('vote')->once()->andReturn($voterTwoResult);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'foo',
+                        'value' => 'foo',
                         'filters' => ['voter_one', 'voter_two'],
                     ],
                     [
@@ -335,20 +335,20 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     {
         $voterOneMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
         $voterTwoMock = clone $voterOneMock;
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterOneMock->shouldReceive('vote')->once()->andReturn($voterOneResult);
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterTwoMock->shouldReceive('vote')->once()->andReturn($voterTwoResult);
 
         $adapter = $this->getAdapter(
             [
                 'existing_value' => [
                     [
-                        'value'   => 'orange',
+                        'value' => 'orange',
                         'filters' => ['voter_one'],
                     ],
                     [
-                        'value'   => 'green',
+                        'value' => 'green',
                         'filters' => ['voter_two'],
                     ],
                     [
@@ -383,7 +383,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
     private function getAdapter(array $returnValue = [])
     {
         $adapterMock = \Mockery::mock('jlis\Judge\Adapters\AdapterInterface');
-        /** @noinspection PhpMethodParametersCountMismatchInspection */
+        /* @noinspection PhpMethodParametersCountMismatchInspection */
         $adapterMock->shouldReceive('getValues')->once()->andReturn($returnValue);
 
         return $adapterMock;

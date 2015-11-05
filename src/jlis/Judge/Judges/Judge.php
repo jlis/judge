@@ -37,7 +37,7 @@ class Judge
     }
 
     /**
-     * Decides multiple rules
+     * Decides multiple rules.
      *
      * @param string|array $rules
      * @param mixed        $user
@@ -76,7 +76,7 @@ class Judge
     }
 
     /**
-     * Decides a single rule
+     * Decides a single rule.
      *
      * @param string $rule
      * @param mixed  $user

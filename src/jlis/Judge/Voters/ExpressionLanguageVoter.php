@@ -12,7 +12,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 class ExpressionLanguageVoter implements VoterInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function vote($parameter = null, $user = null, array $additional = [])
     {

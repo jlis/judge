@@ -8,7 +8,7 @@ namespace jlis\Judge\Contracts;
 interface VoterInterface
 {
     /**
-     * Votes a single rule with the given parameters and user
+     * Votes a single rule with the given parameters and user.
      *
      * @param mixed $parameter
      * @param mixed $user

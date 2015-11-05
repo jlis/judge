@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Config;
 class ConfigAdapter implements AdapterInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFeatures()
     {
@@ -18,7 +18,7 @@ class ConfigAdapter implements AdapterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getValues()
     {

@@ -27,17 +27,17 @@ abstract class AbstractValueJudge extends Judge implements ValueJudgeInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function decide($value, $user = null, $defaultValue = false);
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function valueExists($value);
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function getValues();
 }

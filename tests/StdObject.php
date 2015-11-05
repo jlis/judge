@@ -4,6 +4,7 @@ namespace jlis\Tests\Judge;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
+ *
  * @see    http://stackoverflow.com/a/2938020
  */
 class StdObject
