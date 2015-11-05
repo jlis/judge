@@ -5,6 +5,8 @@ The easy way to toggle/decide features and values.
 [![Build Status](https://travis-ci.org/jlis/judge.svg?branch=master)](https://travis-ci.org/jlis/judge)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jlis/judge/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jlis/judge/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/jlis/judge/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jlis/judge/?branch=master)
+[![StyleCI](https://styleci.io/repos/33918409/shield)](https://styleci.io/repos/33918409)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/db926e8a-da62-41ef-b689-77e9f48cf765/mini.png)](https://insight.sensiolabs.com/projects/db926e8a-da62-41ef-b689-77e9f48cf765)
 [![Total Downloads](https://poser.pugx.org/jlis/judge/downloads)](https://packagist.org/packages/jlis/judge)
 
 - [Installation](#installation).
