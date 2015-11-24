@@ -23,6 +23,13 @@ abstract class AbstractValueJudge extends Judge implements ValueJudgeInterface
     public function __construct(AdapterInterface $adapter, array $voters = [])
     {
         parent::__construct($adapter, $voters);
+        $this->reloadValues();
+    }
+
+    /**
+     * Reloads the values from the adapter
+     */
+    public function reloadValues() {
         $this->values = $this->getValues();
     }
 

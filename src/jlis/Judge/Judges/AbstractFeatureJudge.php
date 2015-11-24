@@ -23,6 +23,13 @@ abstract class AbstractFeatureJudge extends Judge implements FeatureJudgeInterfa
     public function __construct(AdapterInterface $adapter, array $voters = [])
     {
         parent::__construct($adapter, $voters);
+        $this->reloadFeatures();
+    }
+
+    /**
+     * Reloads the features from the adapter
+     */
+    public function reloadFeatures() {
         $this->features = $this->getFeatures();
     }
 
