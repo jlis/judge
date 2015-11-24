@@ -27,9 +27,10 @@ abstract class AbstractFeatureJudge extends Judge implements FeatureJudgeInterfa
     }
 
     /**
-     * Reloads the features from the adapter
+     * Reloads the features from the adapter.
      */
-    public function reloadFeatures() {
+    public function reloadFeatures()
+    {
         $this->features = $this->getFeatures();
     }
 

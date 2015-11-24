@@ -27,9 +27,10 @@ abstract class AbstractValueJudge extends Judge implements ValueJudgeInterface
     }
 
     /**
-     * Reloads the values from the adapter
+     * Reloads the values from the adapter.
      */
-    public function reloadValues() {
+    public function reloadValues()
+    {
         $this->values = $this->getValues();
     }
 
