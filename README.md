@@ -61,7 +61,7 @@ The feature configuration is stored in:
 app/config/features.php
 ```
 
-A **feature** is defined as something which is either on or off and should be only used for that kind if toggles. Lets see:
+A **feature** is defined as something which is either on or off and should be only used for that kind of toggles. Lets see:
 
 ```php
 'show_memory_usage' => [
@@ -72,9 +72,9 @@ A **feature** is defined as something which is either on or off and should be on
 ],
 ```
 
-This name of the feature is "show_memory_usage" and it should return true if the "debug" Voter return true (he checks if the debug mode is enabled or not, see *DebugVoter.php*)
+The name of the feature is `show_memory_usage` and it should return true if the "debug" Voter returns true (it checks whether the debug mode is enabled or not, see *DebugVoter.php*)
 
-Note that the default value of a feature, if not defined otherwise, is always false.
+Note that the default value of a **feature**, if not defined otherwise, is always **false**.
 
 <a id="featuresExamples"></a>
 ## Feature configuration examples
@@ -89,7 +89,7 @@ A simple feature without any filters ( *note that the value can also be a string
 ],
 ```
 
-A feature with multiple filters chained in an AND condition:
+A feature with multiple filters chained in an **AND** condition:
 
 ```php
 'enable_captcha' => [
@@ -100,7 +100,7 @@ A feature with multiple filters chained in an AND condition:
 ],
 ```
 
-A feature with multiple filters chained in an OR condition:
+A feature with multiple filters chained in an **OR** condition:
 
 ```php
 'enable_captcha' => [
@@ -115,7 +115,7 @@ A feature with multiple filters chained in an OR condition:
 ],
 ```
 
-A feature with a negated filter:
+A feature with a **negated** filter:
 
 ```php
 'enable_debug_output' => [
@@ -138,20 +138,21 @@ app/config/values.php
 The **value** however is something which always returns a value (whoa) like a string or number for example:
 
 ```php
-'hello_message' => [
+'greeting' => [
     [
-        'value'   => 'Hello darling <3',
-        'filters' => ['expression_language:user.getName()=="Girlfriend"'],
+        'value'   => 'Hello my lady!',
+        'filters' => ['expression_language:user.getGender()=="female"'],
     ],
     [
-        'value' => 'Hello there.',
+        'value' => 'Hello sir.',
     ],
 ]
 ```
 
-This name of the value is "hello_message". It should return "Hello %s" if the expression voter return true (assuming the given user is not NULL). Otherwise it should return "Hello guest."
+This name of the value is `greeting`. It should return "Hello my lady!" if the expression voter return true (assuming the given user is not NULL and it's gender is female). Otherwise it should return "Hello sir.".
+(Sorry for the gender guessing)
 
-(*ExpressionVoter.php* check with the help of the Symfony Expression Language if the given expression is true)
+(*ExpressionVoter.php* uses the Symfony Expression Language to check if the given expression is true)
 
 <a id="valuesExamples"></a>
 ## Value configuration examples
@@ -180,7 +181,7 @@ A value with one filter and a default value:
 ],
 ```
 
-A value with multiple filters chained in an AND condition and a default value:
+A value with multiple filters chained in an **AND** condition and a default value:
 
 ```php
 'package_price' => [
@@ -203,7 +204,7 @@ The actual voters can be registered here:
 app/config/judge.php
 ```
 
-The voters contain the logic to decide, if the given filter should return true or false. This decides either a feature is on or off or what a value should return regarding to his config.
+The voters contain the logic to decide whether the given filter should return true or false. This decides if either a feature is *on* or *off* or what a value should return regarding to it's config.
 
 <a id="adapters"></a>
 ## Adapters
@@ -214,7 +215,7 @@ By default, Judge uses the Laravel config to read the features/values. You can c
 app/config/judge.php
 ```
 
-If you want to add you own adapter, just implement the **ÀdapterInterface** and add the class.
+If you want to add you own adapter, go for it. Just implement the **AdapterInterface**.
 
 <a id="usage"></a>
 ## Usage
@@ -222,11 +223,11 @@ If you want to add you own adapter, just implement the **ÀdapterInterface** and
 Within your controllers, you can use this for example...
 
 ```php
-$helloMessage = Value::decide('hello_message', $this->getUser());
-echo $helloMessage;
+$greeting = Value::decide('greeting', $this->getUser());
+echo $greeting;
 ```
 
-Or this for example:
+Or this:
 
 ```php
 if (Feature::decide('show_memory_usage', Auth::user())) {
