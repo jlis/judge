@@ -2,9 +2,9 @@
 
 namespace jlis\Tests\Judge\Judges;
 
-use jlis\Judge\Adapters\AdapterInterface;
-use jlis\Judge\Judges\FeatureJudge;
 use jlis\Tests\Judge\StdObject;
+use jlis\Judge\Judges\FeatureJudge;
+use jlis\Judge\Adapters\AdapterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -72,17 +72,17 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function featureWithARuleWithoutFiltersProvider()
     {
-        return array(
-            array(true, true),
-            array(true, 'true'),
-            array(true, '1'),
-            array(true, 'on'),
-            array(false, false),
-            array(false, 'false'),
-            array(false, '-1'),
-            array(false, '0'),
-            array(false, 'off'),
-        );
+        return [
+            [true, true],
+            [true, 'true'],
+            [true, '1'],
+            [true, 'on'],
+            [false, false],
+            [false, 'false'],
+            [false, '-1'],
+            [false, '0'],
+            [false, 'off'],
+        ];
     }
 
     public function testFeatureWithARuleAndEmptyFilters()
@@ -132,7 +132,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('missing_voter' => 'invalid_class'));
+        $judge = new FeatureJudge($adapter, ['missing_voter' => 'invalid_class']);
         static::assertFalse($judge->decide('existingFeature'));
     }
 
@@ -154,7 +154,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => get_class($foo)));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => get_class($foo)]);
         static::assertFalse($judge->decide('existingFeature'));
     }
 
@@ -181,7 +181,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals($expected, $judge->decide('existingFeature'));
     }
 
@@ -190,10 +190,10 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function featureWithARuleAndAExistingVoterProvider()
     {
-        return array(
-            array(true, true),
-            array(false, false),
-        );
+        return [
+            [true, true],
+            [false, false],
+        ];
     }
 
     /**
@@ -219,7 +219,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals($expected, $judge->decide('existingFeature'));
     }
 
@@ -228,10 +228,10 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function featureWithANegatedRuleAndAExistingVoterProvider()
     {
-        return array(
-            array(false, true),
-            array(true, false),
-        );
+        return [
+            [false, true],
+            [true, false],
+        ];
     }
 
     public function testFeatureWithARuleAndAExistingVoterAndAParameter()
@@ -251,7 +251,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertTrue($judge->decide('existingFeature'));
     }
 
@@ -272,7 +272,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertTrue($judge->decide('existingFeature'));
     }
 
@@ -293,7 +293,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertTrue($judge->decide('existingFeature', 'Mike'));
     }
 
@@ -317,7 +317,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new FeatureJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertTrue($judge->decide('existingFeature'));
     }
 
@@ -348,7 +348,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock));
+        $judge = new FeatureJudge($adapter, ['voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock]);
         static::assertEquals($expected, $judge->decide('existingFeature'));
     }
 
@@ -357,12 +357,12 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function featureWithARuleAndMultipleFiltersProvider()
     {
-        return array(
-            array(true, true, true),
-            array(false, false, false),
-            array(false, true, false),
-            array(false, false, true),
-        );
+        return [
+            [true, true, true],
+            [false, false, false],
+            [false, true, false],
+            [false, false, true],
+        ];
     }
 
     /**
@@ -396,7 +396,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new FeatureJudge($adapter, array('voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock));
+        $judge = new FeatureJudge($adapter, ['voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock]);
         static::assertEquals($expected, $judge->decide('existingFeature'));
     }
 
@@ -405,12 +405,12 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function featureWithMultipleRulesAndAFilterProvider()
     {
-        return array(
-            array(true, true, true),
-            array(false, false, false),
-            array(true, true, false),
-            array(true, false, true),
-        );
+        return [
+            [true, true, true],
+            [false, false, false],
+            [true, true, false],
+            [true, false, true],
+        ];
     }
 
     /**

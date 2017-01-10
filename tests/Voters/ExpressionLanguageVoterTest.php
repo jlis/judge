@@ -2,8 +2,8 @@
 
 namespace jlis\Tests\Judge\Voters;
 
-use jlis\Judge\Voters\ExpressionLanguageVoter;
 use jlis\Tests\Judge\StdObject;
+use jlis\Judge\Voters\ExpressionLanguageVoter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -29,14 +29,14 @@ class ExpressionLanguageVoterTest extends \PHPUnit_Framework_TestCase
      */
     public function provider()
     {
-        return array(
-            array(false, ''),
-            array(true, '1+1==2'),
-            array(false, '1+1==3'),
-            array(true, 'user.getName()=="Mike"', $this->getUser()),
-            array(false, 'user.getName()=="Mike"', $this->getUser(), array('user' => $this->getFoo('getName', 'Adam'))),
-            array(true, 'foo.getBar()=="bar"', null, array('foo' => $this->getFoo('getBar', 'bar'))),
-        );
+        return [
+            [false, ''],
+            [true, '1+1==2'],
+            [false, '1+1==3'],
+            [true, 'user.getName()=="Mike"', $this->getUser()],
+            [false, 'user.getName()=="Mike"', $this->getUser(), ['user' => $this->getFoo('getName', 'Adam')]],
+            [true, 'foo.getBar()=="bar"', null, ['foo' => $this->getFoo('getBar', 'bar')]],
+        ];
     }
 
     /**

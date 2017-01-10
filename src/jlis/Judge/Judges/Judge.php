@@ -2,8 +2,8 @@
 
 namespace jlis\Judge\Judges;
 
-use jlis\Judge\Adapters\AdapterInterface;
 use jlis\Judge\Contracts\VoterInterface;
+use jlis\Judge\Adapters\AdapterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -50,11 +50,11 @@ class Judge
             return $this->decideRule($rules, $user);
         }
 
-        if (!is_array($rules) || empty($rules)) {
+        if (! is_array($rules) || empty($rules)) {
             return false;
         }
 
-        if (isset($rules[self::FIELD_VALUE]) && !isset($rules[self::FIELD_FILTERS])) {
+        if (isset($rules[self::FIELD_VALUE]) && ! isset($rules[self::FIELD_FILTERS])) {
             return $rules[self::FIELD_VALUE];
         }
 
@@ -67,7 +67,7 @@ class Judge
         }
 
         foreach ($rules as $subRules) {
-            if (!$this->decideRule($subRules, $user)) {
+            if (! $this->decideRule($subRules, $user)) {
                 return false;
             }
         }
@@ -99,25 +99,25 @@ class Judge
             $rule = array_shift($splits);
             $parameter = array_shift($splits);
 
-            if (!empty($splits)) {
+            if (! empty($splits)) {
                 $additional = $splits;
             }
         }
 
-        if (!isset($this->voters[strtolower($rule)])) {
+        if (! isset($this->voters[strtolower($rule)])) {
             return false;
         }
 
         $voter = $this->voters[strtolower($rule)];
-        if (!is_object($voter)) {
-            if (!class_exists($voter)) {
+        if (! is_object($voter)) {
+            if (! class_exists($voter)) {
                 return false;
             }
 
             $voter = new $voter();
         }
 
-        if (!$voter instanceof VoterInterface) {
+        if (! $voter instanceof VoterInterface) {
             return false;
         }
 

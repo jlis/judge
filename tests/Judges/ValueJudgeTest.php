@@ -2,9 +2,9 @@
 
 namespace jlis\Tests\Judge\Judges;
 
-use jlis\Judge\Adapters\AdapterInterface;
-use jlis\Judge\Judges\ValueJudge;
 use jlis\Tests\Judge\StdObject;
+use jlis\Judge\Judges\ValueJudge;
+use jlis\Judge\Adapters\AdapterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -88,7 +88,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('missing_voter' => 'invalid_class'));
+        $judge = new ValueJudge($adapter, ['missing_voter' => 'invalid_class']);
         static::assertFalse($judge->decide('existing_value'));
     }
 
@@ -110,7 +110,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => get_class($foo)));
+        $judge = new ValueJudge($adapter, ['existing_voter' => get_class($foo)]);
         static::assertFalse($judge->decide('existing_value'));
     }
 
@@ -137,7 +137,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new ValueJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals($expected, $judge->decide('existing_value'));
     }
 
@@ -146,10 +146,10 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function valueWithARuleAndAExistingVoterProvider()
     {
-        return array(
-            array('value', true),
-            array(false, false),
-        );
+        return [
+            ['value', true],
+            [false, false],
+        ];
     }
 
     /**
@@ -175,7 +175,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new ValueJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals($expected, $judge->decide('existing_value'));
     }
 
@@ -184,10 +184,10 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function valueWithANegatedRuleAndAExistingVoterProvider()
     {
-        return array(
-            array('value', false),
-            array(false, true),
-        );
+        return [
+            ['value', false],
+            [false, true],
+        ];
     }
 
     public function testValueWithARuleAndAExistingVoterAndAParameter()
@@ -207,7 +207,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new ValueJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals('value', $judge->decide('existing_value'));
     }
 
@@ -228,7 +228,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new ValueJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals('value', $judge->decide('existing_value'));
     }
 
@@ -249,7 +249,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new ValueJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals('value', $judge->decide('existing_value', 'Mike'));
     }
 
@@ -273,7 +273,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('existing_voter' => $voterMock));
+        $judge = new ValueJudge($adapter, ['existing_voter' => $voterMock]);
         static::assertEquals('bar', $judge->decide('existing_value'));
     }
 
@@ -307,7 +307,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock));
+        $judge = new ValueJudge($adapter, ['voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock]);
         static::assertEquals($expected, $judge->decide('existing_value'));
     }
 
@@ -316,12 +316,12 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function valueWithARuleAndMultipleFiltersProvider()
     {
-        return array(
-            array('foo', true, true),
-            array('bar', false, false),
-            array('bar', true, false),
-            array('bar', false, true),
-        );
+        return [
+            ['foo', true, true],
+            ['bar', false, false],
+            ['bar', true, false],
+            ['bar', false, true],
+        ];
     }
 
     /**
@@ -358,7 +358,7 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $judge = new ValueJudge($adapter, array('voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock));
+        $judge = new ValueJudge($adapter, ['voter_one' => $voterOneMock, 'voter_two' => $voterTwoMock]);
         static::assertEquals($expected, $judge->decide('existing_value'));
     }
 
@@ -367,12 +367,12 @@ class ValueJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function valueWithMultipleRulesAndAFilterProvider()
     {
-        return array(
-            array('orange', true, true),
-            array('blue', false, false),
-            array('orange', true, false),
-            array('green', false, true),
-        );
+        return [
+            ['orange', true, true],
+            ['blue', false, false],
+            ['orange', true, false],
+            ['green', false, true],
+        ];
     }
 
     /**

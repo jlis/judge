@@ -12,12 +12,12 @@ class FeatureJudge extends AbstractFeatureJudge
      */
     public function decide($feature, $user = null, $defaultIfNotFound = false)
     {
-        if (!$this->featureExists($feature)) {
+        if (! $this->featureExists($feature)) {
             return $defaultIfNotFound;
         }
 
         $rules = $this->getFeature($feature);
-        if (!is_array($rules)) {
+        if (! is_array($rules)) {
             return (bool) $rules;
         }
 
@@ -36,7 +36,7 @@ class FeatureJudge extends AbstractFeatureJudge
      */
     public function featureExists($feature)
     {
-        return (isset($this->features[$feature]) && false !== $this->features[$feature]);
+        return isset($this->features[$feature]) && false !== $this->features[$feature];
     }
 
     /**
@@ -67,6 +67,6 @@ class FeatureJudge extends AbstractFeatureJudge
     {
         $boolVal = (is_string($val) ? filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) : (bool) $val);
 
-        return ($boolVal === null && !$returnNull ? false : $boolVal);
+        return $boolVal === null && ! $returnNull ? false : $boolVal;
     }
 }

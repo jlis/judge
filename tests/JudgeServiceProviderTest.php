@@ -2,10 +2,10 @@
 
 namespace jlis\Tests\Judge;
 
-use ArrayAccess;
-use jlis\Judge\Adapters\ConfigAdapter;
-use jlis\Judge\JudgeServiceProvider;
 use Mockery;
+use ArrayAccess;
+use jlis\Judge\JudgeServiceProvider;
+use jlis\Judge\Adapters\ConfigAdapter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

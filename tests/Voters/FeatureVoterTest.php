@@ -3,8 +3,8 @@
 namespace jlis\Tests\Judge\Voters;
 
 use jlis\Judge\Feature;
-use jlis\Judge\Voters\FeatureVoter;
 use jlis\Tests\Judge\StdObject;
+use jlis\Judge\Voters\FeatureVoter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -43,12 +43,12 @@ class FeatureVoterTest extends \PHPUnit_Framework_TestCase
      */
     public function provider()
     {
-        return array(
-            array(true, 'some_feature', true),
-            array(false, 'some_feature', false),
-            array(true, 'some_feature', true, new StdObject()),
-            array(true, 'some_feature', true, null, array('test'), false),
-            array(true, 'some_feature', true, null, array('defaultIfNotFound' => true), true),
-        );
+        return [
+            [true, 'some_feature', true],
+            [false, 'some_feature', false],
+            [true, 'some_feature', true, new StdObject()],
+            [true, 'some_feature', true, null, ['test'], false],
+            [true, 'some_feature', true, null, ['defaultIfNotFound' => true], true],
+        ];
     }
 }

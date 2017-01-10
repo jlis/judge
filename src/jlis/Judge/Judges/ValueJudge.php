@@ -12,12 +12,12 @@ class ValueJudge extends AbstractValueJudge
      */
     public function decide($value, $user = null, $defaultValue = false)
     {
-        if (!$this->valueExists($value)) {
+        if (! $this->valueExists($value)) {
             return $defaultValue;
         }
 
         $rules = $this->getValueRules($value);
-        if (!is_array($rules)) {
+        if (! is_array($rules)) {
             return $rules;
         }
 

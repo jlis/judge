@@ -2,8 +2,8 @@
 
 namespace jlis\Judge\Voters;
 
-use jlis\Judge\Contracts\VoterInterface;
 use jlis\Judge\Judges\FeatureJudge;
+use jlis\Judge\Contracts\VoterInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
@@ -21,7 +21,7 @@ class ExpressionLanguageVoter implements VoterInterface
         }
 
         $language = new ExpressionLanguage();
-        if (!array_key_exists('user', $additional)) {
+        if (! array_key_exists('user', $additional)) {
             $additional['user'] = $user;
         }
 

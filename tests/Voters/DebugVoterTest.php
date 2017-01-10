@@ -2,8 +2,8 @@
 
 namespace jlis\Tests\Judge\Voters;
 
-use Illuminate\Support\Facades\Config;
 use jlis\Judge\Voters\DebugVoter;
+use Illuminate\Support\Facades\Config;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -33,11 +33,11 @@ class DebugVoterTest extends \PHPUnit_Framework_TestCase
      */
     public function provider()
     {
-        return array(
-            array(true, true, 'true'),
-            array(false, false, 'false'),
-            array(false, null, 'true'),
-            array(false, null, ''),
-        );
+        return [
+            [true, true, 'true'],
+            [false, false, 'false'],
+            [false, null, 'true'],
+            [false, null, ''],
+        ];
     }
 }

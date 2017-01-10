@@ -3,8 +3,8 @@
 namespace jlis\Tests\Judge\Voters;
 
 use jlis\Judge\Value;
-use jlis\Judge\Voters\ValueVoter;
 use jlis\Tests\Judge\StdObject;
+use jlis\Judge\Voters\ValueVoter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -43,12 +43,12 @@ class ValueVoterTest extends \PHPUnit_Framework_TestCase
      */
     public function provider()
     {
-        return array(
-            array('meow', 'some_value', 'meow'),
-            array(false, 'some_value', false),
-            array(true, 'some_value', true, new StdObject()),
-            array(true, 'some_value', true, null, array('test'), false),
-            array(true, 'some_value', true, null, array('defaultValue' => true), true),
-        );
+        return [
+            ['meow', 'some_value', 'meow'],
+            [false, 'some_value', false],
+            [true, 'some_value', true, new StdObject()],
+            [true, 'some_value', true, null, ['test'], false],
+            [true, 'some_value', true, null, ['defaultValue' => true], true],
+        ];
     }
 }
