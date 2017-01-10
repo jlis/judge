@@ -2,9 +2,9 @@
 
 namespace jlis\Judge;
 
-use Illuminate\Support\ServiceProvider;
-use jlis\Judge\Judges\FeatureJudge;
 use jlis\Judge\Judges\ValueJudge;
+use jlis\Judge\Judges\FeatureJudge;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -70,11 +70,11 @@ class JudgeServiceProvider extends ServiceProvider
      */
     private function getConfigs()
     {
-        return array(
+        return [
             'features' => __DIR__.'/../../../config/features.php',
             'values' => __DIR__.'/../../../config/values.php',
             'judge' => __DIR__.'/../../../config/judge.php',
-        );
+        ];
     }
 
     /**

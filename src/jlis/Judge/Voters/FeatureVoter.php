@@ -2,8 +2,8 @@
 
 namespace jlis\Judge\Voters;
 
-use jlis\Judge\Contracts\VoterInterface;
 use jlis\Judge\Feature;
+use jlis\Judge\Contracts\VoterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
