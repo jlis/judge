@@ -27,6 +27,7 @@ return [
     */
     'voters' => [
         'debug' => Jlis\Judge\Voters\DebugVoter::class,
+        'environment' => Jlis\Judge\Voters\EnvironmentVoter::class,
         'expression_language' => Jlis\Judge\Voters\ExpressionLanguageVoter::class,
         'feature' => Jlis\Judge\Voters\FeatureVoter::class,
         'value' => Jlis\Judge\Voters\ValueVoter::class,
