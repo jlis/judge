@@ -39,4 +39,3 @@ class EnvironmentVoterTest extends \PHPUnit_Framework_TestCase
         ];
     }
 }
-

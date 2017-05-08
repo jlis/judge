@@ -11,7 +11,7 @@ use Jlis\Judge\Contracts\VoterInterface;
 class EnvironmentVoter implements VoterInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function vote($parameter = null, $user = null, array $additional = [])
     {
