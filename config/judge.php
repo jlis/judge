@@ -12,8 +12,8 @@ return [
     | "cache" => loads from the "judge:features" and "judge:values" cache
     |
     | If you want to use your own adapter, just implement the
-    | jlis\Judge\Adapters\AdapterInterface and set your class like
-    | 'adapter' => my\very\own\adapter::class,
+    | Jlis\Judge\Adapters\AdapterInterface and set your class like
+    | 'adapter' => My\Very\Own\Adapter::class,
     |--------------------------------------------------------------------------
     */
     'adapter' => 'config',
@@ -22,15 +22,15 @@ return [
     |--------------------------------------------------------------------------
     | The voter configuration
     |
-    | The key defines the name of the voter which is used in the flaggings.
+    | The key defines the name of the voter which is used in the features/values.
     |--------------------------------------------------------------------------
     */
     'voters' => [
-        'debug' => \jlis\Judge\Voters\DebugVoter::class,
-        'expression_language' => \jlis\Judge\Voters\ExpressionLanguageVoter::class,
-        'feature' => \jlis\Judge\Voters\FeatureVoter::class,
-        'value' => \jlis\Judge\Voters\ValueVoter::class,
-        'random' => \jlis\Judge\Voters\RandomVoter::class,
+        'debug' => Jlis\Judge\Voters\DebugVoter::class,
+        'expression_language' => Jlis\Judge\Voters\ExpressionLanguageVoter::class,
+        'feature' => Jlis\Judge\Voters\FeatureVoter::class,
+        'value' => Jlis\Judge\Voters\ValueVoter::class,
+        'random' => Jlis\Judge\Voters\RandomVoter::class,
     ],
 
 ];
