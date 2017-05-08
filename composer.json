@@ -41,8 +41,7 @@
     "scrutinizer/ocular": "~1.3"
   },
   "suggest": {
-    "predis/predis": "Allows reading the configuration from Redis",
-    "illuminate/console": "Allows running registered bouncer seeders via artisan"
+    "predis/predis": "Allows reading the configuration from Redis"
   },
   "scripts": {
     "test": "phpunit"
