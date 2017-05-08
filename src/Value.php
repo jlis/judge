@@ -1,6 +1,6 @@
 <?php
 
-namespace jlis\Judge;
+namespace Jlis\Judge;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,6 +1,6 @@
 {
   "name": "jlis/judge",
-  "description": "A feature and value decider for Laravel 5",
+  "description": "Judge handles feature and value toggles/flaggings for Laravel.",
   "keywords": [
     "laravel",
     "feature",
@@ -9,7 +9,8 @@
     "decision",
     "decider",
     "judge",
-    "featuretoggle"
+    "featuretoggle",
+    "featureflag"
   ],
   "homepage": "http://github.com/jlis/judge",
   "license": "MIT",
@@ -19,27 +20,31 @@
       "email": "julius@ehrlich-bros.de"
     }
   ],
-  "require": {
-    "php": ">=5.5.0",
-    "symfony/expression-language": "~2.7",
-    "illuminate/support": "5.*",
-    "mockery/mockery": "0.9.4",
-    "predis/predis": "^1.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "~4.6",
-    "symfony/var-dumper": "~2.7",
-    "scrutinizer/ocular": "dev-master"
-  },
   "autoload": {
-    "psr-0": {
-      "jlis\\Judge\\": "src/"
+    "psr-4": {
+      "Jlis\\Judge\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "jlis\\Tests\\Judge\\": "tests/"
+      "Jlis\\Tests\\Judge\\": "tests/"
     }
   },
-  "minimum-stability": "dev"
+  "require": {
+    "php": ">=5.6.0",
+    "symfony/expression-language": "~2.7|~3.0",
+    "illuminate/support": "5.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*",
+    "mockery/mockery": "^0.9.5",
+    "scrutinizer/ocular": "~1.3"
+  },
+  "suggest": {
+    "predis/predis": "Allows reading the configuration from Redis",
+    "illuminate/console": "Allows running registered bouncer seeders via artisan"
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
 }

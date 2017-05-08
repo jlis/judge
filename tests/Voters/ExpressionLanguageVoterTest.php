@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Tests\Judge\Voters;
+namespace Jlis\Tests\Judge\Voters;
 
-use jlis\Tests\Judge\StdObject;
-use jlis\Judge\Voters\ExpressionLanguageVoter;
+use Jlis\Tests\Judge\StdObject;
+use Jlis\Judge\Voters\ExpressionLanguageVoter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

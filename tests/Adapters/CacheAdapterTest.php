@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Tests\Judge\Adapters;
+namespace Jlis\Tests\Judge\Adapters;
 
 use Illuminate\Support\Facades\Cache;
-use jlis\Judge\Adapters\CacheAdapter;
+use Jlis\Judge\Adapters\CacheAdapter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

@@ -1,6 +1,6 @@
 <?php
 
-namespace jlis\Judge\Adapters;
+namespace Jlis\Judge\Adapters;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

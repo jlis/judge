@@ -1,6 +1,6 @@
 <?php
 
-namespace jlis\Judge\Adapters;
+namespace Jlis\Judge\Adapters;
 
 use Illuminate\Support\Facades\Config;
 

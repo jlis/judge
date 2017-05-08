@@ -1,10 +1,10 @@
 <?php
 
-namespace jlis\Tests\Judge\Judges;
+namespace Jlis\Tests\Judge\Judges;
 
-use jlis\Tests\Judge\StdObject;
-use jlis\Judge\Judges\FeatureJudge;
-use jlis\Judge\Adapters\AdapterInterface;
+use Jlis\Tests\Judge\StdObject;
+use Jlis\Judge\Judges\FeatureJudge;
+use Jlis\Judge\Adapters\AdapterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
@@ -166,7 +166,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function testFeatureWithARuleAndAExistingVoter($expected, $value)
     {
-        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with(null, null, [])->andReturn($value);
 
@@ -204,7 +204,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function testFeatureWithANegatedRuleAndAExistingVoter($expected, $value)
     {
-        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with(null, null, [])->andReturn($value);
 
@@ -236,7 +236,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
 
     public function testFeatureWithARuleAndAExistingVoterAndAParameter()
     {
-        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with('parameter', null, [])->andReturn(true);
 
@@ -257,7 +257,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
 
     public function testFeatureWithARuleAndAExistingVoterAndMultipleParameters()
     {
-        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with('firstParam', null, ['secondParam'])->andReturn(true);
 
@@ -278,7 +278,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
 
     public function testFeatureWithARuleAndAExistingVoterAndAUser()
     {
-        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->with('firstParam', 'Mike', ['secondParam'])->andReturn(true);
 
@@ -299,7 +299,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
 
     public function testFeatureWithARuleAndDefaultValue()
     {
-        $voterMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterMock->shouldReceive('vote')->once()->andReturn(false);
 
@@ -330,7 +330,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function testFeatureWithARuleAndMultipleFilters($expected, $voterOneResult, $voterTwoResult)
     {
-        $voterOneMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterOneMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         $voterTwoMock = clone $voterOneMock;
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterOneMock->shouldReceive('vote')->once()->andReturn($voterOneResult);
@@ -374,7 +374,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     public function testFeatureWithMultipleRulesAndAFilter($expected, $voterOneResult, $voterTwoResult)
     {
-        $voterOneMock = \Mockery::mock('jlis\Judge\Contracts\VoterInterface');
+        $voterOneMock = \Mockery::mock('Jlis\Judge\Contracts\VoterInterface');
         $voterTwoMock = clone $voterOneMock;
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $voterOneMock->shouldReceive('vote')->once()->andReturn($voterOneResult);
@@ -420,7 +420,7 @@ class FeatureJudgeTest extends \PHPUnit_Framework_TestCase
      */
     private function getAdapter(array $returnValue = [])
     {
-        $adapterMock = \Mockery::mock('jlis\Judge\Adapters\AdapterInterface');
+        $adapterMock = \Mockery::mock('Jlis\Judge\Adapters\AdapterInterface');
         /* @noinspection PhpMethodParametersCountMismatchInspection */
         $adapterMock->shouldReceive('getFeatures')->once()->andReturn($returnValue);
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace jlis\Tests\Judge\Voters;
+namespace Jlis\Tests\Judge\Voters;
 
-use jlis\Judge\Voters\DebugVoter;
+use Jlis\Judge\Voters\DebugVoter;
 use Illuminate\Support\Facades\Config;
 
 /**

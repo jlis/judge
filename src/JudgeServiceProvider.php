@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Judge;
+namespace Jlis\Judge;
 
-use jlis\Judge\Judges\ValueJudge;
-use jlis\Judge\Judges\FeatureJudge;
+use Jlis\Judge\Judges\ValueJudge;
+use Jlis\Judge\Judges\FeatureJudge;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -71,9 +71,9 @@ class JudgeServiceProvider extends ServiceProvider
     private function getConfigs()
     {
         return [
-            'features' => __DIR__.'/../../../config/features.php',
-            'values' => __DIR__.'/../../../config/values.php',
-            'judge' => __DIR__.'/../../../config/judge.php',
+            'features' => __DIR__.'/../config/features.php',
+            'values' => __DIR__.'/../config/values.php',
+            'judge' => __DIR__.'/../config/judge.php',
         ];
     }
 

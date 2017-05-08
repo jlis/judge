@@ -1,13 +1,13 @@
 <?php
 
-namespace jlis\Judge\Adapters;
+namespace Jlis\Judge\Adapters;
 
-use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
  */
-class RedisAdapter implements AdapterInterface
+class CacheAdapter implements AdapterInterface
 {
     const KEY_FEATURES = 'judge:features';
     const KEY_VALUES = 'judge:values';
@@ -17,7 +17,7 @@ class RedisAdapter implements AdapterInterface
      */
     public function getFeatures()
     {
-        return Redis::hgetall(self::KEY_FEATURES);
+        return Cache::get(self::KEY_FEATURES, []);
     }
 
     /**
@@ -25,6 +25,6 @@ class RedisAdapter implements AdapterInterface
      */
     public function getValues()
     {
-        return Redis::hgetall(self::KEY_VALUES);
+        return Cache::get(self::KEY_VALUES, []);
     }
 }

@@ -1,4 +1,4 @@
-# Judge - A feature and value decider for Laravel 5 
+# Judge - Judge handles feature and value toggles/flaggings for Laravel.
 
 The easy way to toggle/decide features and values.
 
@@ -33,7 +33,7 @@ And then include the service provider within `app/config/app.php`.
 
 ```php
 'providers' => [
-    \jlis\Judge\JudgeServiceProvider::class,
+    Jlis\Judge\JudgeServiceProvider::class,
 ];
 ```
 
@@ -41,8 +41,8 @@ And, for convenience, add a facade alias to this same file at the bottom:
 
 ```php
 'aliases' => [
-    'Feature' => \jlis\Judge\Feature::class,
-    'Value'   => \jlis\Judge\Value::class,
+    'Feature' => Jlis\Judge\Feature::class,
+    'Value'   => Jlis\Judge\Value::class,
 ];
 ```
 

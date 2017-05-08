@@ -1,8 +1,8 @@
 <?php
 
-namespace jlis\Judge\Judges;
+namespace Jlis\Judge\Judges;
 
-use jlis\Judge\Adapters\AdapterInterface;
+use Jlis\Judge\Adapters\AdapterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

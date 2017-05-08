@@ -1,6 +1,6 @@
 <?php
 
-namespace jlis\Tests\Judge;
+namespace Jlis\Tests\Judge;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

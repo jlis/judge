@@ -1,10 +1,10 @@
 <?php
 
-namespace jlis\Tests\Judge\Voters;
+namespace Jlis\Tests\Judge\Voters;
 
-use jlis\Judge\Value;
-use jlis\Tests\Judge\StdObject;
-use jlis\Judge\Voters\ValueVoter;
+use Jlis\Judge\Value;
+use Jlis\Tests\Judge\StdObject;
+use Jlis\Judge\Voters\ValueVoter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

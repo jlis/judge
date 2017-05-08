@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Tests\Judge\Adapters;
+namespace Jlis\Tests\Judge\Adapters;
 
 use Illuminate\Support\Facades\Redis;
-use jlis\Judge\Adapters\RedisAdapter;
+use Jlis\Judge\Adapters\RedisAdapter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

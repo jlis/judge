@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Tests\Judge\Adapters;
+namespace Jlis\Tests\Judge\Adapters;
 
 use Illuminate\Support\Facades\Config;
-use jlis\Judge\Adapters\ConfigAdapter;
+use Jlis\Judge\Adapters\ConfigAdapter;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

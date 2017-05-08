@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Judge\Voters;
+namespace Jlis\Judge\Voters;
 
-use jlis\Judge\Feature;
-use jlis\Judge\Contracts\VoterInterface;
+use Jlis\Judge\Feature;
+use Jlis\Judge\Contracts\VoterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>

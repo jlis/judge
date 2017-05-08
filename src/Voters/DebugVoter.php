@@ -1,13 +1,14 @@
 <?php
 
-namespace jlis\Judge\Voters;
+namespace Jlis\Judge\Voters;
 
-use jlis\Judge\Contracts\VoterInterface;
+use Illuminate\Support\Facades\Config;
+use Jlis\Judge\Contracts\VoterInterface;
 
 /**
  * @author Julius Ehrlich <julius@ehrlich-bros.de>
  */
-class RandomVoter implements VoterInterface
+class DebugVoter implements VoterInterface
 {
     /**
      * {@inheritdoc}
@@ -18,6 +19,6 @@ class RandomVoter implements VoterInterface
             return false;
         }
 
-        return mt_rand(0, 100) <= (int) $parameter;
+        return Config::get('app.debug') === (bool) $parameter;
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace jlis\Judge\Voters;
+namespace Jlis\Judge\Voters;
 
-use jlis\Judge\Judges\FeatureJudge;
-use jlis\Judge\Contracts\VoterInterface;
+use Jlis\Judge\Judges\FeatureJudge;
+use Jlis\Judge\Contracts\VoterInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
